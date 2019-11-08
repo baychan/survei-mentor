@@ -21,7 +21,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/survey/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/mentor/add') ?>"><i class="fas fa-plus"></i> Add New</a>
 					</div>
 					<div class="card-body">
 
@@ -29,39 +29,46 @@
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>ID_Survey</th>
-										<th>ID_Angkatan</th>
-										<th>Nama Survey</th>
-										<th>Deskripsi</th>
-										<th>Tanggal</th>
+										<th>ID_mentor</th>
+										<th>NIP</th>
+										<th>Nama Mentor</th>
+										<th>Jabatan</th>
+										<th>Email</th>
+										<th>No HP</th>
+										<th>Status</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($survey as $survey): ?>
+									<?php foreach ($mentor as $mentor): ?>
 									<tr>
 										<td width="150">
 
-											<?php echo $survey->id_survey ?>
+											<?php echo $mentor->id_mentor ?>
 										</td>
 										<td>
-											<?php echo $survey->id_angkatan ?>
+											<?php echo $mentor->nip ?>
 										</td>
 										<td>
-											<?php echo $survey->nama_survey ?>
+											<?php echo $mentor->nama ?>
 										</td>
 										<td>
-											<?php echo $survey->deskripsi?>
+											<?php echo $mentor->jabatan ?>
 										</td>
 										<td>
-											<?php echo $survey->tanggal ?>
+											<?php echo $mentor->email ?>
 										</td>
-									
+										<td>
+											<?php echo $mentor->no_hp ?>
+										</td>	
+										<td>
+											<?php echo $mentor->status ?>
+										</td>	
 										<td>									
-											<a href="<?php echo site_url('admin/survey/edit/'.$survey->id_survey) ?>"
+											<a href="<?php echo site_url('admin/mentor/edit/'.$mentor->id_mentor) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
 
-											<a onclick="deleteConfirm('<?php echo site_url('admin/survey/delete/'.$survey->id_survey) ?>')"
+											<a onclick="deleteConfirm('<?php echo site_url('admin/mentor/delete/'.$mentor->id_mentor) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 									</tr>

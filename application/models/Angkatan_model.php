@@ -13,7 +13,7 @@ class Angkatan_model extends CI_Model
         return [
             ['field' => 'angkatan',
             'label' => 'Angkatan',
-            'rules' => 'required'],
+            'rules' => 'required']
         ];
     }
 

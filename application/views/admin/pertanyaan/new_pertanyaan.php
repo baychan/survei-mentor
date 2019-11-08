@@ -26,38 +26,44 @@
 
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/survey/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+						<a href="<?php echo site_url('admin/pertanyaan/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 					</div>
 					<div class="card-body">
-						<form action="<?php base_url('admin/survey/add') ?>" method="post" enctype="multipart/form-data" >
+						<form action="<?php base_url('admin/pertanyaan/add') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
-								<label for="name">ID Angkatan</label>
-								 <select name="id_angkatan" class="form-control <?php echo form_error('id_angkatan') ? 'is-invalid':'' ?>" >
+								<label for="name">ID Kategori</label>
+								 <select name="id_kategori" class="form-control <?php echo form_error('id_kategori') ? 'is-invalid':'' ?>" >
 								 	<option value='' selected>-pilih- </option>
 								 		<?php 
-								 			foreach ($id_angkatan as $key => $value) {
-								 				echo "<option value = '$value->id_angkatan'> $value->angkatan</option>";
+								 			foreach ($id_kategori as $key => $value) {
+								 				echo "<option value = '$value->id_kategori'> $value->nama_kategori</option>";
 								 			}
 								 		?>
 								 </select>
 								<div class="invalid-feedback">
-									<?php echo form_error('id_angkatan') ?>
+									<?php echo form_error('id_kategori') ?>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="name">nama_survey</label>
-								<input class="form-control <?php echo form_error('nama_survey') ? 'is-invalid':'' ?>"
-								 type="text" name="nama_survey" placeholder="Nama survey ?" />
+								<label for="name">ID Survey</label>
+								 <select name="id_survey" class="form-control <?php echo form_error('id_survey') ? 'is-invalid':'' ?>" >
+								 	<option value='' selected>-pilih- </option>
+								 		<?php 
+								 			foreach ($id_survey as $key => $value) {
+								 				echo "<option value = '$value->id_survey'> $value->nama_survey</option>";
+								 			}
+								 		?>
+								 </select>
 								<div class="invalid-feedback">
-									<?php echo form_error('nama_survey') ?>
+									<?php echo form_error('id_survey') ?>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="name">Deskripsi</label>
-								<input class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>"
-								 type="text" name="deskripsi" placeholder="Deskripsi ?" />
+								<label for="name">Pertanyaan</label>
+								<input class="form-control <?php echo form_error('pertanyaan') ? 'is-invalid':'' ?>"
+								 type="text" name="pertanyaan" placeholder="Pertanyaan ?" />
 								<div class="invalid-feedback">
-									<?php echo form_error('deskripsi') ?>
+									<?php echo form_error('pertanyaan') ?>
 								</div>
 							</div>
 							<div class="form-group">
@@ -65,12 +71,12 @@
 								<input class="form-control <?php echo form_error('tanggal') ? 'is-invalid':'' ?>"
 								 type="text" name="tanggal" placeholder="Tanggal ?" />
 								<div class="invalid-feedback">
-									<?php echo form_error('Tanggal') ?>
+									<?php echo form_error('tanggal') ?>
 								</div>
 							</div>
+
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>
-			
 
 					</div>
 

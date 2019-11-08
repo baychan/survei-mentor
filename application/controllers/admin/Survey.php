@@ -13,7 +13,7 @@ class Survey extends CI_Controller
 
     public function index()
     {
-        $data["survey"] = $this->angkatan_model->getAll();
+        $data["survey"] = $this->survey_model->getAll();
         $this->load->view("admin/survey/list_survey", $data);
     }
 
@@ -23,12 +23,16 @@ class Survey extends CI_Controller
         $validation = $this->form_validation; // object form validation
         $validation->set_rules($survey->rules()); // terapkan rules
 
+        
+
         if ($validation->run()) { //melakukan validasi
             $survey->save();  //simpan data ke database
             $this->session->set_flashdata('success', 'Berhasil disimpan'); //tampilkan pesan berhasil
         }
 
-        $this->load->view("admin/survey/new_survey"); //tampilkan form add
+        $id_angkatan["id_angkatan"] = $this->survey_model->get_id_angkatan();
+
+        $this->load->view("admin/survey/new_survey", $id_angkatan); //tampilkan form add
     }
 
     public function edit($id = null)
@@ -45,6 +49,7 @@ class Survey extends CI_Controller
         }
 
         $data["survey"] = $survey->getById($id); //mengambil data untuk di tampilkan pada form
+        $data["id_angkatan"] = $this->survey_model->get_id_angkatan();
         if (!$data["survey"]) show_404(); // jika tidak ada,tampilkan eror 404
         
         $this->load->view("admin/survey/edit_survey", $data); //menampilkan form edit

@@ -21,7 +21,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/survey/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/pertanyaan/add') ?>"><i class="fas fa-plus"></i> Add New</a>
 					</div>
 					<div class="card-body">
 
@@ -29,39 +29,39 @@
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
+										<th>ID_Pertanyaan</th>
+										<th>ID_Kategori</th>
 										<th>ID_Survey</th>
-										<th>ID_Angkatan</th>
-										<th>Nama Survey</th>
-										<th>Deskripsi</th>
+										<th>Pertanyaan</th>
 										<th>Tanggal</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($survey as $survey): ?>
+									<?php foreach ($pertanyaan as $pertanyaan): ?>
 									<tr>
 										<td width="150">
 
-											<?php echo $survey->id_survey ?>
+											<?php echo $pertanyaan->id_pertanyaan ?>
 										</td>
 										<td>
-											<?php echo $survey->id_angkatan ?>
+											<?php echo $pertanyaan->id_kategori ?>
 										</td>
 										<td>
-											<?php echo $survey->nama_survey ?>
+											<?php echo $pertanyaan->id_survey ?>
 										</td>
 										<td>
-											<?php echo $survey->deskripsi?>
+											<?php echo $pertanyaan->pertanyaan ?>
 										</td>
 										<td>
-											<?php echo $survey->tanggal ?>
+											<?php echo $pertanyaan->tanggal ?>
 										</td>
 									
 										<td>									
-											<a href="<?php echo site_url('admin/survey/edit/'.$survey->id_survey) ?>"
+											<a href="<?php echo site_url('admin/pertanyaan/edit/'.$pertanyaan->id_pertanyaan) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
 
-											<a onclick="deleteConfirm('<?php echo site_url('admin/survey/delete/'.$survey->id_survey) ?>')"
+											<a onclick="deleteConfirm('<?php echo site_url('admin/pertanyaan/delete/'.$pertanyaan->id_pertanyaan) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 									</tr>

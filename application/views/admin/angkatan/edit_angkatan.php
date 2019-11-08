@@ -42,7 +42,7 @@
 								<input class="form-control <?php echo form_error('angkatan') ? 'is-invalid':'' ?>"
 								 type="text" name="angkatan" placeholder="Angkatan" value="<?php echo $angkatan->angkatan ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('name') ?>
+									<?php echo form_error('angkatan') ?>
 								</div>
 							</div>
 
