@@ -6,17 +6,20 @@
             <span>Overview</span>
         </a>
     </li>
-     <li class="nav-item dropdown">
+    <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Manage admin</span>
+            <i class="fas fa-fw fa-boxes"></i>
+            <span>Laporan Hasil Survey</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="<?php echo site_url('admin/survey/add') ?>">Input Admin baru</a>
-            <a class="dropdown-item" href="<?php echo site_url('admin/survey') ?>">Daftar Admin</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/survey/add') ?>">Laporan All</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/survey') ?>">Laporan Detail</a>
+             <a class="dropdown-item" href="<?php echo site_url('admin/survey/add') ?>">Laporan Individu</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/survey') ?>">Laporan Other Detail</a>
         </div>
     </li>
+    
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
@@ -72,17 +75,16 @@
             <a class="dropdown-item" href="<?php echo site_url('admin/pertanyaan') ?>">Daftar Pertanyaan</a>
         </div>
     </li>
-     <li class="nav-item dropdown">
+  
+    <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            <i class="fas fa-fw fa-boxes"></i>
-            <span>Laporan Hasil Survey</span>
+            <i class="fas fa-fw fa-users"></i>
+            <span>Manage admin</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="<?php echo site_url('admin/survey/add') ?>">Laporan All</a>
-            <a class="dropdown-item" href="<?php echo site_url('admin/survey') ?>">Laporan Detail</a>
-             <a class="dropdown-item" href="<?php echo site_url('admin/survey/add') ?>">Laporan Individu</a>
-            <a class="dropdown-item" href="<?php echo site_url('admin/survey') ?>">Laporan Other Detail</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/admin/add') ?>">Input Admin baru</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/admin') ?>">Daftar Admin</a>
         </div>
     </li>
 </ul>
