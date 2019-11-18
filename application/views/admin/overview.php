@@ -22,6 +22,8 @@
         -->
     <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
+    <h2><?php echo $this->session->userdata("email_admin"); ?></h2>
+
     <!-- Icon Cards-->
     <div class="row">
       <div class="col-xl-3 col-sm-6 mb-3">

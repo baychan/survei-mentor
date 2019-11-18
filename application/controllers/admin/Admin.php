@@ -4,11 +4,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
+    //private $_ci;
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("Admin_model");
+    //     $this->_ci =& get_instance();
+    //     $this->_ci->load->model('Admin_model');
+    $this->db = $this->load->database('default', true); 
+         $this->load->model("Admin_model");
         $this->load->library('form_validation');
+
+        if(!$this->session->userdata('status')){
+			redirect(base_url("admin/admin"));
+        }
+        else{
+            //redirect(base_url("admin/overview"));
+        }
     }
 
     public function index()
@@ -23,10 +34,10 @@ class Admin extends CI_Controller
         $password = $this->input->post('password');
         $where = array(
             'email_admin' => $email,
-            'password' => md5($password)
+            'password' => $password
         );
 
-        $cek = $this->admin_model->cek_login("admin",$where);
+        $cek = $this->Admin_model->cek_login("t_admin",$where)->num_rows();
         if($cek > 0){
             $data_session = array(
                 'email_admin' => $email,
@@ -36,18 +47,19 @@ class Admin extends CI_Controller
 
             $this->session->set_userdata($data_session);
 
-            redirect(base_url("admin"));
+            redirect(base_url("admin/overview"));
         }
 
         else{
-            echo "Username dan passwrd salah !";
+            echo "Email dan password salah !";
         }
     }
 
     function logout()
     {
-        $this->session->sess_destroy();
-        redirect(base_url('login'));
+        //$this->session->sess_destroy();
+        session_destroy();
+        redirect(base_url('admin/admin'));
     }
 
     public function add()
@@ -55,6 +67,8 @@ class Admin extends CI_Controller
         $admin = $this->Admin_model; //object model
         $validation = $this->form_validation; // object form validation
         $validation->set_rules($admin->rules()); // terapkan rules
+
+        $validation->set_message('is_unique', 'Data tak boleh redundant');
 
         if ($validation->run()) { //melakukan validasi
             $admin->save();  //simpan data ke database

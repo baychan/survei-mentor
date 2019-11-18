@@ -23,18 +23,20 @@
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Login Admin Survei Mentor OJT</div>
+      <div class="card-header">Login Admin Survei Mentor OJT || <?php echo $this->session->userdata("status"); ?></div>
       <div class="card-body">
+
+      
         <form action="<?php echo base_url('admin/admin/dologin');?>" method="post">
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+              <input type="email" name="email_admin" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
               <label for="inputEmail">Email address</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+              <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="required">
               <label for="inputPassword">Password</label>
             </div>
           </div>
@@ -46,7 +48,8 @@
               </label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+          <input type="submit" class="btn btn-primary btn-block" value="login" >
+          <!-- <a class="btn btn-primary btn-block" >Login</a> -->
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.html">Register an Account</a>

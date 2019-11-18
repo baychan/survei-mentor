@@ -15,7 +15,7 @@ class Admin_model extends CI_Model
         return [
             ['field' => 'nama_admin',
             'label' => 'nama_admin',
-            'rules' => 'required'],
+            'rules' => 'trims|required|is_unique[t_admin.nama_admin]'],
 
             ['field' => 'email_admin',
             'label' => 'email_admin',
@@ -25,6 +25,8 @@ class Admin_model extends CI_Model
             'label' => 'password',
             'rules' => 'required']
         ];
+
+        
     }
 
     public function getAll()
@@ -42,7 +44,7 @@ class Admin_model extends CI_Model
         $post = $this->input->post();
         $this->nama_admin = $post["nama_admin"];
         $this->email_admin = $post["email_admin"];
-        $this->password = $post["password"];
+        $this->password = $post[md5("password")];
         $this->db->insert($this->_table, $this);
     }
 
@@ -59,5 +61,13 @@ class Admin_model extends CI_Model
     public function delete($id)
     {
         return $this->db->delete($this->_table, array("id_admin" => $id));
+    }
+
+    public function cek_login($table,$where)
+    {
+        
+        return $this->db->get_where($table,$where);
+
+
     }
 }
